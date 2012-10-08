@@ -289,7 +289,7 @@ class PyfooAPI(object):
     @property
     def forms(self):
         if not hasattr(self, '_forms'):
-            forms_json = self.make_call('https://%s.wufoo.com/api/v3/forms.json' % self.account)
+            forms_json = self.make_call('https://%s.wufoo.com/api/v3/forms.json?system=True' % self.account)
             self._forms = [Form(self, form_dict) for form_dict in forms_json['Forms']]
         return self._forms
     
